@@ -29,7 +29,49 @@
             }
             catch
             {
-                return this.StatusCode(500, "Internal server error!");
+                return this.StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+        [HttpPost]
+        [Route("set-product")]
+        public async Task<IActionResult> SetProduct([FromBody] Product product)
+        {
+            try
+            {
+                var result = await this.business.SetProduct(product);
+                if (!result)
+                {
+                    return this.StatusCode(StatusCodes.Status404NotFound);
+                }
+                return this.StatusCode(200, new
+                {
+                    message = "Product saved Successfully!"
+                });
+            }
+            catch
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+        [HttpDelete]
+        [Route("delete-product/{id}")]
+        public async Task<IActionResult> DeleteProduct([FromRoute] int id)
+        {
+            try
+            {
+                var result = await this.business.DeleteProduct(id);
+                if (!result)
+                {
+                    return this.StatusCode(StatusCodes.Status404NotFound);
+                }
+                return this.StatusCode(200, new
+                {
+                    message = "Product deleted Successfully!"
+                });
+            }
+            catch
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
     }
