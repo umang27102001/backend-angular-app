@@ -5,7 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
 
     [ApiController]
-    [Route("")]
+    [Route("products")]
     public class ProductController: ControllerBase
     {
         private readonly IProductBusiness business;
@@ -15,7 +15,7 @@
         }
 
         [HttpGet]
-        [Route("get-products")]
+        [Route("get-all")]
         public async Task<IActionResult> GetProducts()
         {
             try
@@ -33,12 +33,12 @@
             }
         }
         [HttpPost]
-        [Route("set-product")]
+        [Route("add")]
         public async Task<IActionResult> SetProduct([FromBody] Product product)
         {
             try
             {
-                var result = await this.business.SetProduct(product);
+                var result = await this.business.AddProduct(product);
                 if (!result)
                 {
                     return this.StatusCode(StatusCodes.Status404NotFound);
@@ -54,7 +54,7 @@
             }
         }
         [HttpDelete]
-        [Route("delete-product/{id}")]
+        [Route("delete/{id}")]
         public async Task<IActionResult> DeleteProduct([FromRoute] int id)
         {
             try

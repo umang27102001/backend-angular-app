@@ -14,6 +14,8 @@ namespace backend
 
             builder.Services.AddControllers();
             builder.Services.AddScoped<IProductBusiness, ProductBuisness>();
+            builder.Services.AddScoped<IUserBusiness, UserBusiness>();
+            builder.Services.AddScoped<ICategoryBusiness, CategoryBusiness>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
