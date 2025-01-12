@@ -12,5 +12,11 @@ namespace backend.Business
             string jsonContent = await File.ReadAllTextAsync(filePath);
             return JsonSerializer.Deserialize<List<Category>>(jsonContent) ?? new();
         }
+        public async Task<Category?> GetAllCategoryById(int id)
+        {
+            var filePath = @"C:\Users\UmangKanchan\source\repos\backend\Data\Categories.json";
+            string jsonContent = await File.ReadAllTextAsync(filePath);
+            return JsonSerializer.Deserialize<List<Category>>(jsonContent)?.FirstOrDefault(e=>e.Id==id);
+        }
     }
 }

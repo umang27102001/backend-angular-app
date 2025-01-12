@@ -1,110 +1,72 @@
 [
     {
-        "Id": 1,
-        "Name": "Gaming Mouse",
-        "Description": "Ergonomic gaming mouse with customizable buttons.",
-        "CategoryId": 1,
-        "Price": 29.99,
-        "Discount": 10.0,
-        "ImageUrl": "https://example.com/images/gaming-mouse.jpg"
-    },
-    {
-        "Id": 2,
-        "Name": "Office Chair",
-        "Description": "Comfortable office chair with lumbar support.",
-        "CategoryId": 2,
-        "Price": 129.99,
-        "Discount": 10.0,
-        "ImageUrl": "https://example.com/images/office-chair.jpg"
-    },
-    {
-        "Id": 3,
-        "Name": "Coffee Maker",
-        "Description": "Automatic coffee maker with programmable settings.",
-        "CategoryId": 3,
-        "Price": 79.99,
-        "Discount": 15.0,
-        "ImageUrl": "https://example.com/images/coffee-maker.jpg"
-    },
-    {
-        "Id": 4,
-        "Name": "Bluetooth Speaker",
-        "Description": "Portable Bluetooth speaker with deep bass.",
-        "CategoryId": 1,
-        "Price": 49.99,
-        "Discount": 20.0,
-        "ImageUrl": "https://example.com/images/bluetooth-speaker.jpg"
-    },
-    {
-        "Id": 5,
-        "Name": "Electric Kettle",
-        "Description": "Fast-boiling electric kettle with auto shut-off.",
-        "CategoryId": 3,
-        "Price": 39.99,
-        "Discount": 5.0,
-        "ImageUrl": "https://example.com/images/electric-kettle.jpg"
-    },
-    {
-        "Id": 6,
-        "Name": "Boult headset",
+        "Id": 100,
+        "Name": "Boult headset3",
         "Description": "Great bluetooth",
-        "CategoryId": 4,
-        "Price": 123,
-        "Discount": 123,
-        "ImageUrl": "http://bluetooh-headset.fav"
-    },
-    {
-        "Id": 12,
-        "Name": "Boult headset -2",
-        "Description": "Great bluetooth",
-        "CategoryId": 4,
-        "Price": 123,
-        "Discount": 123,
-        "ImageUrl": "http://bluetooh-headset.fav"
-    },
-    {
-        "Id": 13,
-        "Name": "Boult headset",
-        "Description": "Great bluetooth",
-        "CategoryId": 4,
-        "Price": 123,
-        "Discount": 123,
-        "ImageUrl": "http://bluetooh-headset.fav"
-    },
-    {
-        "Id": 14,
-        "Name": "Boult headset",
-        "Description": "Great bluetooth",
-        "CategoryId": 4,
-        "Price": 123,
-        "Discount": 123,
-        "ImageUrl": "http://bluetooh-headset.fav"
-    },
-    {
-        "Id": 15,
-        "Name": "Boult headset",
-        "Description": "Great bluetooth",
-        "CategoryId": 4,
-        "Price": 123,
-        "Discount": 123,
-        "ImageUrl": "http://bluetooh-headset.fav"
-    },
-    {
-        "Id": 17,
-        "Name": "Boult headset",
-        "Description": "Great bluetooth",
-        "CategoryId": 4,
-        "Price": 123,
-        "Discount": 123,
-        "ImageUrl": "http://bluetooh-headset.fav"
-    },
-    {
-        "Id": 11,
-        "Name": "Boult headset",
-        "Description": "Great bluetooth",
+        "ProductCode": "GDN-1120",
         "CategoryId": 1,
         "Price": 123,
         "Discount": 123,
         "ImageUrl": "http://bluetooh-headset.fav"
+    },
+    {
+        "Id": 40,
+        "Name": "Zepto",
+        "Description": "boston",
+        "ProductCode": "PN-1120",
+        "CategoryId": 1,
+        "Price": 122,
+        "Discount": 12,
+        "ImageUrl": "https://fsdf.com"
+    },
+    {
+        "Id": 42,
+        "Name": "Zepto-2",
+        "Description": "boston",
+        "ProductCode": "GPN-1120",
+        "CategoryId": 1,
+        "Price": 122,
+        "Discount": 12,
+        "ImageUrl": "https://fsdf.com"
+    },
+    {
+        "Id": 44,
+        "Name": "Zepto-3",
+        "Description": "boston",
+        "ProductCode": "LDN-1120",
+        "CategoryId": 1,
+        "Price": 122,
+        "Discount": 12,
+        "ImageUrl": "https://fsdf.com"
+    },
+    {
+        "Id": 45,
+        "Name": "Zepto-3",
+        "Description": "boston",
+        "ProductCode": "GoN-1120",
+        "CategoryId": 1,
+        "Price": 122,
+        "Discount": 12,
+        "ImageUrl": "https://fsdf.com"
+    },
+    {
+        "Id": 46,
+        "Name": "Zepto-4",
+        "Description": "boston",
+        "ProductCode": "GDN-1122",
+        "CategoryId": 1,
+        "Price": 122,
+        "Discount": 12,
+        "ImageUrl": "https://fsdf.com"
+    },
+    {
+        "Id": 48,
+        "Name": "Zepto-5",
+        "Description": "boston",
+        "ProductCode": "GDN-9120",
+        "CategoryId": 1,
+        "Price": 122,
+        "Discount": 12,
+        "ImageUrl": "https://fsdf.com"
     }
 ]

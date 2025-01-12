@@ -1,7 +1,9 @@
 
 using backend.Business;
 using backend.Business.Interface;
-
+using Microsoft.EntityFrameworkCore;
+using Repository;
+using Repository.Context;
 namespace backend
 {
     public class Program
@@ -16,6 +18,7 @@ namespace backend
             builder.Services.AddScoped<IProductBusiness, ProductBuisness>();
             builder.Services.AddScoped<IUserBusiness, UserBusiness>();
             builder.Services.AddScoped<ICategoryBusiness, CategoryBusiness>();
+            builder.Services.AddScoped<ISqlRepository, SqlRepository>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -29,8 +32,15 @@ namespace backend
                           .AllowAnyMethod();  // Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
                 });
             });
+            builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                context.Database.Migrate();
+            }
             app.UseCors("GeneralCorsPolicy");
 
             // Configure the HTTP request pipeline.

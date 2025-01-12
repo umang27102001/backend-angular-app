@@ -1,29 +1,29 @@
 ﻿using System.Text.Json;
 using backend.Abstraction.Models;
 using backend.Business.Interface;
+using Repository;
 
 namespace backend.Business
 {
     public class ProductBuisness: IProductBusiness
     {
+        private readonly ISqlRepository repository;
+        
+        public ProductBuisness(ISqlRepository repository)
+        {
+            this.repository = repository;
+        }
+
         public async Task<bool> DeleteProduct(int productId)
         {
-            var filePath = @"C:\Users\UmangKanchan\source\repos\backend\Data\Product.json";
-            string jsonContent = await File.ReadAllTextAsync(filePath);
-            var data = JsonSerializer.Deserialize<List<Product>>(jsonContent)?.Where(data => data.Id!=productId);
-            string newFile = JsonSerializer.Serialize(data);
-            File.WriteAllText(filePath, newFile);
-            return true;
+            return await this.repository.DeleteProductAsync(productId, CancellationToken.None);
         }
 
         public async Task<List<Product>> GetProducts()
         {
             try
             {
-                var filePath = @"C:\Users\UmangKanchan\source\repos\backend\Data\Products.json";
-                string jsonContent = await File.ReadAllTextAsync(filePath);
-                bool a = jsonContent is string;
-                return JsonSerializer.Deserialize<List<Product>>(jsonContent) ?? new();
+               return (await this.repository.GetAllProductsAsync(CancellationToken.None)).Value;
             }
             catch (Exception)
             {
@@ -34,15 +34,21 @@ namespace backend.Business
         {
             try
             {
-                var filePath = @"C:\Users\UmangKanchan\source\repos\backend\Data\Products.json";
-                string jsonContent = await File.ReadAllTextAsync(filePath);
-                var data = JsonSerializer.Deserialize<List<Product>>(jsonContent);
-                data!.Add(product);
-                string newFile = JsonSerializer.Serialize(data);
-                File.WriteAllText(filePath, newFile);
-                return true;
+               return await this.repository.AddProductAsync(product, CancellationToken.None);
             }
             catch 
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateProduct(Product prod)
+        {
+            try
+            {
+                return await this.repository.UpdateProductAsync(prod, CancellationToken.None);
+            }
+            catch
             {
                 return false;
             }

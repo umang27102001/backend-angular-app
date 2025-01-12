@@ -74,5 +74,26 @@
                 return this.StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [HttpPut]
+        [Route("update")]
+        public async Task<IActionResult> UpdateProduct([FromBody] Product product)
+        {
+            try
+            {
+                var result = await this.business.UpdateProduct(product);
+                if (!result)
+                {
+                    return this.StatusCode(StatusCodes.Status404NotFound);
+                }
+                return this.StatusCode(200, new
+                {
+                    message = "Product deleted Successfully!"
+                });
+            }
+            catch
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }

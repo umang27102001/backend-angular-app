@@ -7,5 +7,6 @@ namespace backend.Business.Interface
         Task<List<Product>> GetProducts();
         Task<bool> AddProduct(Product product);
         Task<bool> DeleteProduct(int productId);
+        Task<bool> UpdateProduct(Product prod);
     }
 }
